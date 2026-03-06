@@ -18,16 +18,17 @@ public class Order_FirstStep_Page : IPage
 
     List<string> buttons = new List<string>();
     //ReplyMarkup replyMarkup;
-    InlineKeyboardMarkup inlinekeyboardMarkup;
+    ReplyMarkup replyMarkup;
     public Order_FirstStep_Page() 
     {
-        inlinekeyboardMarkup = new KeyBoard().NumsButtonRowBoard_Inline(2, button1, button2, button3, button4, button5, backButton);
-        buttons = new[] { button1, button2, button3, button4, button5, backButton }.ToList();
+        //inlinekeyboardMarkup = new KeyBoard().OneButtonRowBoard_Inline(button1, button2, button3, button4, button5, backButton);
+        replyMarkup = new KeyBoard().OneButtonRowBoard_Inline(button1, button2);
+        buttons = new[] { button1, button2 }.ToList();
     }
     public PageResultBase View(Update update, UserState userState)
     {
         var resourse = ResoursesService.GetResource(pathPhoto);
-        return new PhotoPageResult(resourse, text, inlinekeyboardMarkup)
+        return new PhotoPageResult(resourse, text, replyMarkup)
         {
             UpdatedUserState = new UserState(this, userState.UserData)
         };

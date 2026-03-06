@@ -1,4 +1,5 @@
-﻿using Telegram.Bot.Types.ReplyMarkups;
+﻿using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.ReplyMarkups;
 
 public class PageResultBase
 {
@@ -10,16 +11,21 @@ public class PageResultBase
 
         public UserState UpdatedUserState { get; set; }// состояние пользователя
 
+        public ParseMode ParseMode { get; set; } = ParseMode.Html;
+
+        /*public PageResultBase(string text, InlineKeyboardMarkup replyMarkup)
+        {
+            Text = text;
+            InlineKeyboardMarkup = replyMarkup;
+        }*/
+
         public PageResultBase(string text, ReplyMarkup replyMarkup)
         {
             Text = text;
             ReplyMarkup = replyMarkup;
         }
 
-        public PageResultBase(string text, InlineKeyboardMarkup replyMarkup)
-        {
-            Text = text;
-            InlineKeyboardMarkup = replyMarkup;
-        }
+    public bool IsMedia => this is PhotoPageResult ||
+                           this is VideoPageResult;
 
 }
