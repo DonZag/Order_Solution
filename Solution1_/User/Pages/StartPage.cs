@@ -15,7 +15,7 @@ public class StartPage : IPage
     string button2 = "Найти заказ (сотрудничество)";//кнопка 2
     //string pathVideo = "Resourses\\Videos\\video_2026-02-26_00-07-16.mp4";
     string pathPhoto = "Resourses\\Photos\\IMG_20231023_141620_0311.jpg";
-    ReplyMarkup replyMarkup;
+    InlineKeyboardMarkup replyMarkup;
     public StartPage() { replyMarkup = new KeyBoard().OneButtonRowBoard_Inline(button1, button2); }//кнопки которые идут на старте
 
     public PageResultBase View(Update update, UserState userState)

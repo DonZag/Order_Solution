@@ -13,11 +13,11 @@ public class PageResultBase
 
         public ParseMode ParseMode { get; set; } = ParseMode.Html;
 
-        /*public PageResultBase(string text, InlineKeyboardMarkup replyMarkup)
+        public PageResultBase(string text, InlineKeyboardMarkup replyMarkup)
         {
             Text = text;
             InlineKeyboardMarkup = replyMarkup;
-        }*/
+        }
 
         public PageResultBase(string text, ReplyMarkup replyMarkup)
         {
